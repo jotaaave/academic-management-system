@@ -1,0 +1,348 @@
+:root {
+  --navy: #12306a;
+  --navy-circle: #1c3f80;
+  --page-bg: #e6f0fb;
+  --card-bg: #ffffff;
+  --input-bg: #e8f1fb;
+  --input-border: #d3e3f6;
+  --blue: #1a6fdc;
+  --link: #1565c0;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --danger: #c62828;
+
+  /* 1u = 1px do primeiro print (595x376), escalado ao tamanho da janela */
+  --u: min(100vw / 595, 100vh / 376);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* sem rolagem */
+}
+
+body {
+  font-family: "Segoe UI", "DejaVu Sans", Verdana, Arial, sans-serif;
+  color: var(--text);
+  background: var(--page-bg);
+}
+
+.page {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ---------- Painel lateral ---------- */
+.brand {
+  position: relative;
+  z-index: 2; /* deixa o circulo grande sobrepor a area clara */
+  flex: 0 0 38.4%;
+  background: var(--navy);
+  color: #fff;
+  padding: calc(var(--u) * 40) calc(var(--u) * 28);
+}
+
+.brand__title {
+  font-size: calc(var(--u) * 20);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.brand__subtitle {
+  margin-top: calc(var(--u) * 2);
+  font-size: calc(var(--u) * 8.4);
+  line-height: 1.55;
+  color: #d5deee;
+}
+
+.brand__tagline {
+  position: absolute;
+  z-index: 3;
+  left: calc(var(--u) * 28);
+  bottom: calc(var(--u) * 38);
+  font-size: calc(var(--u) * 9.7);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--navy-circle);
+}
+
+.circle--left {
+  width: calc(var(--u) * 66);
+  height: calc(var(--u) * 66);
+  left: calc(var(--u) * -20);
+  top: calc(52.4% - var(--u) * 33);
+}
+
+.circle--mid {
+  width: calc(var(--u) * 50);
+  height: calc(var(--u) * 50);
+  left: calc(var(--u) * 63);
+  top: calc(69.1% - var(--u) * 25);
+}
+
+.circle--big {
+  width: calc(var(--u) * 130);
+  height: calc(var(--u) * 130);
+  right: calc(var(--u) * -25); /* quanto invade a area clara */
+  bottom: calc(var(--u) * -16);
+}
+
+/* ---------- Area do formulario ---------- */
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 470px;
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 2.6rem 2.6rem 2.2rem;
+  box-shadow: 0 6px 24px rgba(18, 48, 106, 0.08);
+}
+
+.card__title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.card__subtitle {
+  margin-top: 0.4rem;
+  margin-bottom: 1.6rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.field {
+  margin-bottom: 1.1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+  height: 2.6rem;
+  padding: 0 0.9rem;
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 7px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.field input::placeholder {
+  color: #8a97a8;
+}
+
+.field input:focus {
+  background: #fff;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(26, 111, 220, 0.18);
+}
+
+.field input.invalid {
+  border-color: var(--danger);
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  padding-right: 3.2rem;
+}
+
+.toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.7rem;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  color: var(--link);
+  cursor: pointer;
+}
+
+.toggle .icon--hide {
+  display: none;
+}
+
+.toggle.is-visible .icon--show {
+  display: none;
+}
+
+.toggle.is-visible .icon--hide {
+  display: block;
+}
+
+.forgot:hover,
+.card__footer a:hover {
+  text-decoration: underline;
+}
+
+.toggle:focus-visible,
+.forgot:focus-visible,
+.card__footer a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.forgot {
+  display: block;
+  width: fit-content;
+  margin: -0.2rem 0 1.3rem auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--link);
+  text-decoration: none;
+}
+
+.error {
+  margin: -0.5rem 0 1rem;
+  font-size: 0.75rem;
+  color: var(--danger);
+}
+
+.btn {
+  width: 100%;
+  height: 2.75rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn:hover {
+  background: #135cbb;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.card__footer {
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #e5eaf1;
+  text-align: center;
+}
+
+.card__footer p {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.card__footer a {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* ---------- Janelas de pouca altura (continua sem rolagem) ---------- */
+@media (max-height: 560px) and (min-width: 801px) {
+  .card {
+    padding: 1.5rem 2rem 1.3rem;
+  }
+  .card__subtitle {
+    margin-bottom: 1rem;
+  }
+  .field {
+    margin-bottom: 0.7rem;
+  }
+  .field input {
+    height: 2.2rem;
+  }
+  .btn {
+    height: 2.3rem;
+  }
+  .card__footer {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+  }
+}
+
+/* ---------- Celular: painel vira cabecalho e a pagina pode rolar ---------- */
+@media (max-width: 800px) {
+  html,
+  body {
+    height: auto;
+    overflow: auto;
+  }
+
+  .page {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .brand {
+    flex: none;
+    padding: 1.75rem 1.5rem;
+    overflow: hidden;
+  }
+
+  .brand__title {
+    font-size: 2rem;
+  }
+
+  .brand__subtitle {
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .brand__tagline,
+  .circle {
+    display: none;
+  }
+
+  .content {
+    padding: 1.5rem 1rem 2rem;
+    align-items: flex-start;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+}
