@@ -53,7 +53,7 @@ form.addEventListener("submit", (event) => {
   botao.disabled = true;
   botao.textContent = "Entrando...";
 
-  // Simulacao de requisicao. Troque por fetch() para a sua API.
+  // Simulacao de requisicao
   setTimeout(() => {
     botao.disabled = false;
     botao.textContent = "Entrar";
@@ -61,7 +61,7 @@ form.addEventListener("submit", (event) => {
   }, 900);
 });
 
-// Links (placeholder ate existirem as paginas reais)
+// Links 
 document.getElementById("forgot").addEventListener("click", (e) => {
   e.preventDefault();
   alert("Fluxo de recuperacao de senha ainda nao implementado.");
