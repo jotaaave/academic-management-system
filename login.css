@@ -11,7 +11,7 @@
   --muted: #6b7280;
   --danger: #c62828;
 
-  /* 1u = 1px do primeiro print (595x376), escalado ao tamanho da janela */
+  
   --u: min(100vw / 595, 100vh / 376);
 }
 
@@ -24,7 +24,7 @@
 html,
 body {
   height: 100%;
-  overflow: hidden; /* sem rolagem */
+  overflow: hidden; 
 }
 
 body {
@@ -43,7 +43,7 @@ body {
 /* ---------- Painel lateral ---------- */
 .brand {
   position: relative;
-  z-index: 2; /* deixa o circulo grande sobrepor a area clara */
+  z-index: 2; 
   flex: 0 0 38.4%;
   background: var(--navy);
   color: #fff;
@@ -97,7 +97,7 @@ body {
 .circle--big {
   width: calc(var(--u) * 130);
   height: calc(var(--u) * 130);
-  right: calc(var(--u) * -25); /* quanto invade a area clara */
+  right: calc(var(--u) * -25); 
   bottom: calc(var(--u) * -16);
 }
 
@@ -279,7 +279,7 @@ body {
   text-decoration: none;
 }
 
-/* ---------- Janelas de pouca altura (continua sem rolagem) ---------- */
+/* ---------- Janelas de pouca altura ---------- */
 @media (max-height: 560px) and (min-width: 801px) {
   .card {
     padding: 1.5rem 2rem 1.3rem;
