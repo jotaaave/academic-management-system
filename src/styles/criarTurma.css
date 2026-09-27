@@ -1,0 +1,317 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eaf4fc;
+    color: #111;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 145px;
+    height: 100vh;
+
+    background: #112d60;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 20px 6px;
+}
+
+.logo-icon {
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #17376d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+}
+
+.logo strong {
+    display: block;
+    font-size: 14px;
+}
+
+.logo span {
+    display: block;
+
+    font-size: 7px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 26px;
+
+    margin-top: 12px;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    padding-left: 14px;
+}
+
+.user {
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 15px 10px 16px;
+}
+
+.user-icon {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #17376d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.user strong {
+    display: block;
+    font-size: 10px;
+}
+
+.user span {
+    display: block;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.main {
+    margin-left: 145px;
+
+    min-height: 100vh;
+}
+
+.header {
+    height: 54px;
+
+    background: white;
+
+    border-top: 3px solid #333;
+    border-bottom: 1px solid #d2dce7;
+
+    padding: 10px 20px;
+}
+
+.header h1 {
+    font-size: 16px;
+}
+
+.header p {
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    color: #66717c;
+}
+
+.content {
+    min-height: calc(100vh - 54px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 55px;
+}
+
+.form-card {
+    width: 520px;
+
+    background: white;
+
+    border: 1px solid #d2dce7;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.form-card::before {
+    content: "";
+
+    display: block;
+
+    height: 5px;
+
+    background: #1515ff;
+}
+
+.form-header {
+    padding: 20px 24px 15px;
+
+    border-bottom: 1px solid #e5e9ee;
+}
+
+.form-header h2 {
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+.form-header p {
+    font-size: 11px;
+
+    color: #66717c;
+}
+
+form {
+    padding: 20px 24px 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    font-size: 11px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    border: 1px solid #cbd5df;
+    border-radius: 5px;
+
+    padding: 10px 11px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+
+    outline: none;
+
+    background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #1464b4;
+
+    box-shadow: 0 0 0 2px rgba(20, 100, 180, 0.10);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9ba5af;
+}
+
+textarea {
+    height: 85px;
+
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #e5e9ee;
+}
+
+.actions button {
+    border: none;
+
+    border-radius: 4px;
+
+    padding: 10px 18px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background: white;
+
+    border: 1px solid #cbd5df !important;
+
+    color: #333;
+}
+
+.btn-cancelar:hover {
+    background: #f5f6f7;
+}
+
+.btn-criar {
+    background: #1464a5;
+
+    color: white;
+}
+
+.btn-criar:hover {
+    background: #0e548e;
+}

@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>SGA HOME</title>
 </head>
 <body>
-    
+<aside class="menu-lateral">
+    <div class="logo">
+        <div class="logo-circulo">F</div>
+        <div>
+            <strong>SGA</strong>
+            <span>Documento</span>
+        </div>
+    </div>
+
+     <nav class="menu">
+
+
+ <a href="#" class="menu-item ativo">
+                <span class="bolinha"></span>
+                Minhas turmas
+
+ <a href="#" class="menu-item">
+
+        <span class="bolinha"></span>
+        Meu perfil
+
+        <a href="#" class="menu-item sair" id="sair">
+            <span class="bolinha"></span>
+            Sair
+        </a>
+ </a>
+
+</nav>
+    <div class="professor">
+
+    <div class="professor-circulo" id="iniciaisProfessor">
+        P
+    </div>
+
+    <div>
+        <strong id="nomeProfessor">Professor</strong>
+        <span>Professor(a)</span>
+    </div>
+
+</div>
+</aside>
+
+<main class="conteudo">
+    <header class="cabecalho">
+        <div> 
+            <h1> Minhas turmas</h1>
+            <p> Selecione uma turma para ver o diário de notas</p>
+        </div>
+
+        <div class="usuario" id="iniciaisTopo">
+             P
+        </div>
+
+    </header>
+
+    <div>
+        <button class="adicionar-turma">
+            Adicionar turma
+        </button>
+    </div>
+
+
+<section class="turmas">
+</section>
+
+<section class="diario" id="diario">
+
+    <div class="diario-cabecalho">
+
+        <div>
+            <p class="diario-voltar">← Voltar para minhas turmas</p>
+
+            <h2 id="nomeTurma">Diário de notas</h2>
+
+            <span id="periodoTurma">ADS 2026.1</span>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+    <script src="../scripts/back-end.js"></script>
+    <script src="../scripts/home.js"></script>
 </body>
 </html>

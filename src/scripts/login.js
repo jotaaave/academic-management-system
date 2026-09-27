@@ -4,6 +4,17 @@ const senhaInput = document.getElementById("senha");
 const toggleBtn = document.getElementById("toggle-senha");
 const errorEl = document.getElementById("error");
 
+function verificarLogin() {
+  const professor = pegarProfessor();
+
+  if (professor && professor.ativo) {
+    alert("Usuario ja logado. Redirecionando para a pagina inicial.");
+    window.location.href = "index.html";
+  }
+}
+
+verificarLogin();
+
 // Mostrar / ocultar senha
 toggleBtn.addEventListener("click", () => {
   const mostrando = senhaInput.type === "text";
@@ -49,15 +60,28 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
+  const professor = pegarProfessor();
+
+  if (!professor) {
+    mostrarErro("Nenhum professor cadastrado. Por favor, cadastre-se primeiro.", emailInput);
+    return;
+  }
+
+  if (email !== professor.email || senha !== professor.password) {
+    mostrarErro("E-mail ou senha incorretos.", emailInput);
+    return;
+  }
+
   const botao = form.querySelector(".btn");
   botao.disabled = true;
   botao.textContent = "Entrando...";
 
-  // Simulacao de requisicao. 
   setTimeout(() => {
     botao.disabled = false;
     botao.textContent = "Entrar";
     alert("Login realizado com sucesso!");
+    atualizarProfessor({ ...professor, ativo: true });
+    window.location.href = "index.html";
   }, 900);
 });
 
@@ -65,9 +89,4 @@ form.addEventListener("submit", (event) => {
 document.getElementById("forgot").addEventListener("click", (e) => {
   e.preventDefault();
   alert("Fluxo de recuperacao de senha ainda nao implementado.");
-});
-
-document.getElementById("register").addEventListener("click", (e) => {
-  e.preventDefault();
-  alert("Fluxo de cadastro de professor ainda nao implementado.");
 });

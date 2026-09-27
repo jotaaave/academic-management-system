@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta
+        name="theme-color"
+        content="#12306a"
+    >
+
+    <title>Criar conta | SGA</title>
+
+    <link
+        rel="stylesheet"
+        href="../styles/cadastro.css"
+    >
+</head>
+
+<body>
+
+    <main class="layout">
+
+        <aside
+            class="brand-panel"
+            aria-label="Apresentação do SGA"
+        >
+
+            <div class="brand">
+
+                <div
+                    class="mark"
+                    aria-hidden="true"
+                >
+                    SGA
+                </div>
+
+                <div>
+
+                    <div class="brand-title">
+                        SGA
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Sistema de Gestão Acadêmica · Área do Docente
+                    </div>
+
+                </div>
+
+            </div>
+
+            <span
+                class="orb"
+                aria-hidden="true"
+            ></span>
+
+            <section class="hero">
+
+                <div class="eyebrow">
+                    Sua jornada começa aqui
+                </div>
+
+                <h1>
+                    Ensinar,<br>
+                    acompanhar e<br>
+                    transformar.
+                </h1>
+
+                <p>
+                    Crie sua conta para acessar turmas,
+                    compartilhar materiais e acompanhar
+                    sua rotina acadêmica em um só lugar.
+                </p>
+
+            </section>
+
+            <div class="brand-foot">
+                Um espaço feito para quem ensina.
+            </div>
+
+        </aside>
+
+
+        <section
+            class="form-area"
+            aria-label="Cadastro de conta"
+        >
+
+            <div class="card">
+
+                <header class="heading">
+
+                    <h2>
+                        Crie sua conta
+                    </h2>
+
+                    <p>
+                        Preencha seus dados para começar
+                        a usar o SGA.
+                    </p>
+
+                </header>
+
+
+                <form
+                    id="signup"
+                    novalidate
+                >
+
+                    <div class="fields">
+
+                        <div class="field full">
+
+                            <label
+                                class="field-label"
+                                for="name"
+                            >
+                                Nome completo
+                            </label>
+
+                            <input
+                                class="control"
+                                id="name"
+                                name="name"
+                                type="text"
+                                autocomplete="name"
+                                placeholder="Ex.: Maria da Silva Santos"
+                                required
+                                minlength="3"
+                                aria-describedby="name-error"
+                            >
+
+                            <div
+                                class="error"
+                                id="name-error"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label
+                                class="field-label"
+                                for="email"
+                            >
+                                E-mail Institucional
+                            </label>
+
+                            <input
+                                class="control"
+                                id="email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                placeholder="professor@maisunifacisa.com.br"
+                                required
+                                aria-describedby="email-error"
+                            >
+
+                            <div
+                                class="error"
+                                id="email-error"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label
+                                class="field-label"
+                                for="city"
+                            >
+                                Disciplina Principal
+                            </label>
+
+                            <input
+                                class="control"
+                                id="city"
+                                name="city"
+                                type="text"
+                                placeholder="Ex.: Engenharia de Software"
+                                required
+                                minlength="2"
+                                aria-describedby="city-error"
+                            >
+
+                            <div
+                                class="error"
+                                id="city-error"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label
+                                class="field-label"
+                                for="password"
+                            >
+                                Senha
+                            </label>
+
+                            <div class="password-wrap">
+
+                                <input
+                                    class="control"
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    autocomplete="new-password"
+                                    placeholder="Mínimo de 8 caracteres"
+                                    required
+                                    minlength="8"
+                                    aria-describedby="password-hint password-error"
+                                >
+
+                            </div>
+
+                            <div
+                                class="hint"
+                                id="password-hint"
+                            >
+                                Use pelo menos 8 caracteres.
+                            </div>
+
+                            <div
+                                class="error"
+                                id="password-error"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label
+                                class="field-label"
+                                for="confirm"
+                            >
+                                Confirmação de senha
+                            </label>
+
+                            <div class="password-wrap">
+
+                                <input
+                                    class="control"
+                                    id="confirm"
+                                    name="confirm"
+                                    type="password"
+                                    autocomplete="new-password"
+                                    placeholder="Digite a senha novamente"
+                                    required
+                                    aria-describedby="confirm-error"
+                                >
+
+                            </div>
+
+                            <div
+                                class="error"
+                                id="confirm-error"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="submit"
+                        type="submit"
+                    >
+                        Criar minha conta
+                    </button>
+
+
+                    <div
+                        class="success"
+                        id="success"
+                        role="status"
+                        aria-live="polite"
+                    >
+
+                        <h3>
+                            Cadastro validado!
+                        </h3>
+
+                        <p>
+                            Confira os dados informados:
+                        </p>
+
+                        <dl id="summary"></dl>
+
+                    </div>
+
+                </form>
+
+
+                <footer class="login">
+
+                    Já tem uma conta?
+
+                    <a href="login.html" class="link-login">
+                        Acesse o portal institucional do SGA.
+                    </a>
+
+                </footer>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../scripts/cadastro.js"></script>
+
+</body>
+
+</html>
