@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#103f48">
+  <title>Criar conta | SGA</title>
+  <style>
+    :root{color-scheme:light;--petrol:#103f48;--petrol-2:#17616d;--ink:#123943;--muted:#71828d;--line:#d6e2e6;--field:#f7f9fa;--bg:#edf5f6;--white:#fff;--error:#b42318;--success:#176b48}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    .layout{min-height:100vh;display:grid;grid-template-columns:minmax(330px,37%) 1fr}.brand-panel{position:relative;overflow:hidden;min-height:100vh;padding:55px clamp(32px,5vw,84px);background:var(--petrol);color:white;display:flex;flex-direction:column;justify-content:space-between}.brand-panel:before,.brand-panel:after,.orb{content:"";position:absolute;border-radius:50%;background:#23717b;opacity:.65;pointer-events:none}.brand-panel:before{width:180px;height:180px;left:-88px;top:49%}.brand-panel:after{width:310px;height:310px;right:-115px;bottom:5%}.orb{width:105px;height:105px;left:32%;top:66%;opacity:.22}.brand,.hero,.brand-foot{position:relative;z-index:1}.brand{display:flex;gap:15px;align-items:center}.mark{width:50px;height:50px;display:grid;place-items:center;border:1px solid #7fa0a5;border-radius:15px;font-weight:800;font-size:16px;background:#ffffff12}.brand-title{font-size:25px;font-weight:750;letter-spacing:-.5px}.brand-subtitle{font-size:13px;margin-top:4px;color:#d0e1e4}.hero{max-width:475px;margin:60px 0 10px}.eyebrow{font-size:16px;font-weight:750;letter-spacing:2px;text-transform:uppercase;color:#d2e1e4}.hero h1{font-size:clamp(38px,4vw,54px);line-height:1.12;letter-spacing:-2px;margin:12px 0 20px;color:#fff}.hero p{font-size:17px;line-height:1.75;color:#d6e7e9;margin:0;max-width:410px}.brand-foot{font-size:13px;color:#c9dcdf}
+    .form-area{padding:46px 28px;display:flex;align-items:center;justify-content:center}.card{width:min(100%,850px);background:var(--white);border:1px solid #e0e9eb;border-radius:24px;padding:clamp(28px,3.2vw,52px);box-shadow:0 22px 70px #1747500c}.heading h2{font-size:30px;letter-spacing:-1px;margin:0;color:#122f39}.heading p{margin:10px 0 32px;color:var(--muted);font-size:15px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px}.field{min-width:0}.field.full{grid-column:1/-1}label.field-label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}.control{width:100%;height:53px;border:1px solid var(--line);border-radius:11px;background:var(--field);padding:0 15px;color:#203d46;font:inherit;font-size:14px;outline:none;transition:border-color .15s,box-shadow .15s}.control::placeholder{color:#93a4b1}.control:focus{border-color:var(--petrol-2);box-shadow:0 0 0 3px #17616d1c;background:white}.control[aria-invalid="true"]{border-color:var(--error)}select.control{cursor:pointer}.password-wrap{position:relative}.password-wrap .control{padding-right:75px}.toggle{position:absolute;right:11px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#075267;font:inherit;font-weight:700;font-size:13px;cursor:pointer;padding:8px 4px}.hint,.error{font-size:12px;margin:6px 2px 0;min-height:15px}.hint{color:var(--muted)}.error{color:var(--error)}.checks{display:grid;gap:11px;margin:21px 0 20px}.check-row{display:flex;align-items:flex-start;gap:10px;color:#516570;font-size:13px;line-height:1.5}.check-row input{margin:2px 0 0;width:18px;height:18px;accent-color:var(--petrol);flex:none}.check-row a{color:#075267;font-weight:700;text-decoration:underline;text-underline-offset:2px}.check-error{color:var(--error);font-size:12px;margin:-5px 0 12px;display:none}.submit{width:100%;min-height:57px;border:0;border-radius:11px;background:var(--petrol);color:#fff;font:inherit;font-size:14px;font-weight:750;cursor:pointer;transition:background .15s,transform .15s}.submit:hover{background:#0b333b}.submit:active{transform:translateY(1px)}.submit:focus-visible,.toggle:focus-visible,a:focus-visible{outline:3px solid #48a8b7;outline-offset:3px}.login{border-top:1px solid #e6edef;text-align:center;margin-top:21px;padding-top:20px;font-size:13px;color:var(--muted)}.login a{color:#526b78;text-decoration:none}.login a:hover{text-decoration:underline}.success{display:none;margin-top:18px;border:1px solid #b7dfca;border-radius:12px;background:#f0faf4;padding:17px 19px;color:#164c38}.success h3{font-size:16px;margin:0 0 7px}.success p{margin:0 0 10px;font-size:13px}.success dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:13px}.success dt{font-weight:700}.success dd{margin:0;overflow-wrap:anywhere}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}.brand-panel{min-height:250px;padding:28px 30px 32px}.brand{align-self:flex-start}.hero{margin:40px 0 0;max-width:640px}.hero h1{font-size:38px;max-width:500px}.hero p{font-size:15px}.brand-foot{display:none}.brand-panel:before{left:auto;right:-34px;top:28%;width:130px;height:130px}.brand-panel:after{right:-120px;bottom:-205px}.form-area{padding:26px 18px 40px;align-items:flex-start}.card{max-width:700px}}
+    @media(max-width:560px){.brand-panel{min-height:220px;padding:22px 22px 25px}.mark{width:43px;height:43px;border-radius:13px}.brand-title{font-size:22px}.brand-subtitle{font-size:11px}.hero{margin-top:27px}.eyebrow{font-size:12px;letter-spacing:1.6px}.hero h1{font-size:31px;letter-spacing:-1px;margin:8px 0 10px}.hero p{font-size:14px;line-height:1.55;max-width:360px}.form-area{padding:16px 12px 28px}.card{border-radius:18px;padding:25px 19px}.heading h2{font-size:26px}.heading p{font-size:14px;margin:8px 0 23px}.fields{grid-template-columns:1fr;gap:15px}.field.full{grid-column:auto}.control{height:50px}.checks{margin-top:19px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="layout">
+    <aside class="brand-panel" aria-label="Apresentação do SGA">
+      <div class="brand"><div class="mark" aria-hidden="true">SGA</div><div><div class="brand-title">SGA</div><div class="brand-subtitle">Sistema de Gestão Acadêmica · Área do Docente</div></div></div>
+      <span class="orb" aria-hidden="true"></span>
+      <section class="hero"><div class="eyebrow">Sua jornada começa aqui</div><h1>Ensinar,<br>acompanhar e<br>transformar.</h1><p>Crie sua conta para acessar turmas, compartilhar materiais e acompanhar sua rotina acadêmica em um só lugar.</p></section>
+      <div class="brand-foot">Um espaço feito para quem ensina.</div>
+    </aside>
+    <section class="form-area" aria-label="Cadastro de conta">
+      <div class="card">
+        <header class="heading"><h2>Crie sua conta</h2><p>Preencha seus dados para começar a usar o SGA.</p></header>
+        <form id="signup" novalidate>
+          <div class="fields">
+            <div class="field full"><label class="field-label" for="name">Nome completo</label><input class="control" id="name" name="name" autocomplete="name" placeholder="Ex.: Maria da Silva Santos" required minlength="3" aria-describedby="name-error"><div class="error" id="name-error"></div></div>
+            <div class="field"><label class="field-label" for="email">E-mail</label><input class="control" id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com.br" required aria-describedby="email-error"><div class="error" id="email-error"></div></div>
+            <div class="field"><label class="field-label" for="phone">Celular</label><input class="control" id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(00) 00000-0000" maxlength="15" required aria-describedby="phone-error"><div class="error" id="phone-error"></div></div>
+            <div class="field"><label class="field-label" for="city">Cidade</label><input class="control" id="city" name="city" autocomplete="address-level2" placeholder="Sua cidade" required minlength="2" aria-describedby="city-error"><div class="error" id="city-error"></div></div>
+            <div class="field"><label class="field-label" for="state">Estado</label><select class="control" id="state" name="state" autocomplete="address-level1" required aria-describedby="state-error"><option value="">Selecione</option><option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option></select><div class="error" id="state-error"></div></div>
+            <div class="field"><label class="field-label" for="password">Senha</label><div class="password-wrap"><input class="control" id="password" name="password" type="password" autocomplete="new-password" placeholder="Mínimo de 8 caracteres" required minlength="8" aria-describedby="password-hint password-error"><button class="toggle" type="button" data-target="password" aria-label="Mostrar senha">Mostrar</button></div><div class="hint" id="password-hint">Use pelo menos 8 caracteres.</div><div class="error" id="password-error"></div></div>
+            <div class="field"><label class="field-label" for="confirm">Confirmação de senha</label><div class="password-wrap"><input class="control" id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Digite a senha novamente" required aria-describedby="confirm-error"><button class="toggle" type="button" data-target="confirm" aria-label="Mostrar confirmação de senha">Mostrar</button></div><div class="error" id="confirm-error"></div></div>
+          </div>
+          <div class="checks">
+            <label class="check-row"><input type="checkbox" id="terms" name="terms" required><span>Li e aceito os <a href="#termos" data-policy="termos">Termos de Uso</a>.</span></label>
+            <label class="check-row"><input type="checkbox" id="privacy" name="privacy" required><span>Li e concordo com a <a href="#privacidade" data-policy="privacidade">Política de Privacidade</a>.</span></label>
+          </div>
+          <div id="check-error" class="check-error" role="alert">Aceite os Termos de Uso e a Política de Privacidade para continuar.</div>
+          <button class="submit" type="submit">Criar minha conta&nbsp; →</button>
+          <div class="success" id="success" role="status" aria-live="polite"><h3>Cadastro validado!</h3><p>Confira os dados informados:</p><dl id="summary"></dl></div>
+        </form>
+        <footer class="login">Já tem uma conta? <a href="#acesso">Acesse o portal institucional do SGA.</a></footer>
+      </div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      'use strict';
+      const form = document.querySelector('#signup');
+      const fields = ['name','email','phone','city','state','password','confirm'];
+      const stateNames = Object.fromEntries([...document.querySelector('#state').options].filter(option => option.value).map(option => [option.value, option.textContent]));
+      const digits = value => value.replace(/\D/g, '');
+      const phone = document.querySelector('#phone');
+      const normalizePhone = value => {
+        const numbers = digits(value).slice(0, 11);
+        if (numbers.length < 3) return numbers ? `(${numbers}` : '';
+        if (numbers.length <= 10) return `(${numbers.slice(0,2)}) ${numbers.slice(2,6)}${numbers.length > 6 ? `-${numbers.slice(6)}` : ''}`;
+        return `(${numbers.slice(0,2)}) ${numbers.slice(2,7)}-${numbers.slice(7)}`;
+      };
+      phone.addEventListener('input', () => { phone.value = normalizePhone(phone.value); clearError('phone'); });
+      function setError(id, message) {
+        const input = document.getElementById(id);
+        const output = document.getElementById(`${id}-error`);
+        input.setAttribute('aria-invalid', message ? 'true' : 'false');
+        output.textContent = message;
+        return !message;
+      }
+      function clearError(id) { setError(id, ''); }
+      function validate(id) {
+        const input = document.getElementById(id);
+        const value = input.value.trim();
+        let message = '';
+        if (!value) message = 'Este campo é obrigatório.';
+        else if (id === 'name' && (value.length < 3 || value.split(/\s+/).filter(Boolean).length < 2)) message = 'Informe nome e sobrenome.';
+        else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) message = 'Informe um e-mail válido.';
+        else if (id === 'phone' && ![10,11].includes(digits(value).length)) message = 'Informe um celular com DDD válido.';
+        else if (id === 'city' && value.length < 2) message = 'Informe uma cidade válida.';
+        else if (id === 'password' && value.length < 8) message = 'A senha deve ter pelo menos 8 caracteres.';
+        else if (id === 'confirm' && value !== document.querySelector('#password').value) message = 'As senhas não coincidem.';
+        return setError(id, message);
+      }
+      fields.forEach(id => {
+        const input = document.getElementById(id);
+        input.addEventListener('blur', () => validate(id));
+        input.addEventListener('input', () => { if (input.getAttribute('aria-invalid') === 'true') validate(id); if (id === 'password' && document.querySelector('#confirm').value) validate('confirm'); });
+        input.addEventListener('change', () => validate(id));
+      });
+      document.querySelectorAll('.toggle').forEach(button => button.addEventListener('click', () => {
+        const input = document.getElementById(button.dataset.target);
+        const showing = input.type === 'password';
+        input.type = showing ? 'text' : 'password';
+        button.textContent = showing ? 'Ocultar' : 'Mostrar';
+        button.setAttribute('aria-label', `${showing ? 'Ocultar' : 'Mostrar'} ${button.dataset.target === 'password' ? 'senha' : 'confirmação de senha'}`);
+      }));
+      document.querySelectorAll('[data-policy]').forEach(link => link.addEventListener('click', event => {
+        event.preventDefault();
+        const label = link.dataset.policy === 'termos' ? 'Termos de Uso' : 'Política de Privacidade';
+        window.alert(`${label}\n\nAdicione aqui o conteúdo oficial do SGA antes de publicar o cadastro.`);
+      }));
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const validFields = fields.map(validate).every(Boolean);
+        const termsAccepted = document.querySelector('#terms').checked;
+        const privacyAccepted = document.querySelector('#privacy').checked;
+        const checkError = document.querySelector('#check-error');
+        checkError.style.display = termsAccepted && privacyAccepted ? 'none' : 'block';
+        if (!validFields || !termsAccepted || !privacyAccepted) {
+          document.querySelector('[aria-invalid="true"]')?.focus();
+          return;
+        }
+        const data = {
+          'Nome completo': document.querySelector('#name').value.trim().replace(/\s+/g, ' '),
+          'E-mail': document.querySelector('#email').value.trim(),
+          'Celular': normalizePhone(document.querySelector('#phone').value),
+          'Cidade': document.querySelector('#city').value.trim().replace(/\s+/g, ' '),
+          'Estado': stateNames[document.querySelector('#state').value]
+        };
+        const summary = document.querySelector('#summary');
+        summary.replaceChildren(...Object.entries(data).flatMap(([label, value]) => {
+          const term = document.createElement('dt'); term.textContent = label;
+          const detail = document.createElement('dd'); detail.textContent = value;
+          return [term, detail];
+        }));
+        document.querySelector('#success').style.display = 'block';
+        document.querySelector('#success').scrollIntoView({behavior:'smooth',block:'nearest'});
+      });
+    })();
+  </script>
+</body>
+</html>
