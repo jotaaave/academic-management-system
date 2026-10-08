@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu perfil - SGA</title>
+
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/perfil.css">
+</head>
+
+<body>
+    <aside class="menu-lateral">
+
+        <div class="logo">
+            <div class="logo-circulo">F</div>
+            <div>
+                <strong>SGA</strong>
+                <span>Docente</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <a href="./index.html" class="menu-item">
+                <span class="bolinha"></span>
+                Minhas turmas
+            </a>
+
+            <a href="./perfil.html" class="menu-item ativo">
+                <span class="bolinha"></span>
+                Meu perfil
+            </a>
+
+            <a href="#" class="menu-item sair" id="sair">
+                <span class="bolinha"></span>
+                Sair
+            </a>
+
+        </nav>
+
+        <div class="professor">
+
+            <div class="professor-circulo" id="iniciaisProfessor">
+                P
+            </div>
+
+            <div>
+                <strong id="nomeProfessor">Professor</strong>
+                <span>Professor(a)</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <main class="conteudo">
+
+        <header class="cabecalho">
+
+            <div>
+                <h1>Meu perfil</h1>
+                <p>Atualize sua foto e seus dados cadastrais</p>
+            </div>
+
+            <div class="usuario" id="iniciaisTopo">
+                P
+            </div>
+
+        </header>
+
+
+        <section class="perfil">
+
+            <form id="form-perfil" class="perfil-card" novalidate>
+
+                <div class="foto-area">
+
+                    <div class="foto-wrap">
+
+                        <div class="foto-circulo" id="fotoCirculo">
+                            <span id="iniciaisFoto">P</span>
+                            <img id="fotoImg" alt="Foto do perfil" hidden>
+                        </div>
+
+                        <span class="foto-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                            </svg>
+                        </span>
+
+                    </div>
+
+                    <div class="foto-info">
+
+                        <strong>Foto do perfil</strong>
+                        <span>PNG ou JPG, até 2 MB</span>
+                        <span>Recomendado 400x400 px</span>
+
+                        <div class="foto-botoes">
+
+                            <button type="button" class="btn-alterar" id="btnAlterarFoto">
+                                Alterar foto
+                            </button>
+
+                            <button type="button" class="btn-remover" id="btnRemoverFoto">
+                                Remover
+                            </button>
+
+                        </div>
+
+                        <input
+                            type="file"
+                            id="inputFoto"
+                            accept="image/png, image/jpeg"
+                            hidden
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" placeholder="Ex.: Ana Paula Menezes" autocomplete="name">
+                    <p class="erro" id="erro-nome"></p>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail institucional</label>
+                    <input type="email" id="email" placeholder="professor@maisunifacisa.com.br" autocomplete="email">
+                    <p class="erro" id="erro-email"></p>
+                </div>
+
+                <div class="campo">
+                    <label for="disciplina">Disciplina principal</label>
+                    <input type="text" id="disciplina" placeholder="Ex.: Engenharia de Software">
+                    <p class="erro" id="erro-disciplina"></p>
+                </div>
+
+            </form>
+
+
+            <div class="perfil-acoes">
+
+                <button type="submit" form="form-perfil" class="btn-salvar" id="btnSalvar">
+                    Salvar
+                </button>
+
+                <span class="aviso" id="aviso" role="status" aria-live="polite"></span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../scripts/back-end.js"></script>
+    <script src="../scripts/perfil.js"></script>
+
+</body>
+</html>

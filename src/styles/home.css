@@ -89,6 +89,14 @@ body {
 .menu-item:hover {
     background-color: #1d7fe0;
 }
+
+.menu-item.ativo {
+    background-color: #1d7fe0;
+}
+
+.menu-item.sair {
+    margin-top: 6px;
+}
 .bolinha {
     width: 8px;
     height: 8px;
@@ -134,6 +142,10 @@ body {
     background-color: #eaf3fc;
 
 }
+
+.acoes-topo {
+    padding: 16px 20px 0;
+}
 .cabecalho{
 height: 52px;
 background-color: white;
@@ -171,7 +183,7 @@ font-weight: bold;
 
 .turmas{
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 gap: 15px;
 padding: 20px;
 
@@ -280,6 +292,25 @@ transition: transform 0.2 ease, box-shadow 0.2s ease;
 
 .card-conteudo a:hover {
     text-decoration: underline;
+}
+
+.estado-vazio {
+    margin: 20px;
+    padding: 28px;
+    border: 1px dashed #b7c9dd;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.72);
+    color: #35506f;
+}
+
+.estado-vazio h2 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.estado-vazio p {
+    font-size: 13px;
+    color: #5f748d;
 }
 .diario{
 display: none;

@@ -4,127 +4,126 @@ function verificarLogin() {
     if (!professor || !professor.ativo) {
         alert("Usuario nao logado. Redirecionando para a pagina de login.");
         window.location.href = "login.html";
+        return null;
     }
-
-    console.log(professor);
 
     return professor;
 }
 
-window.addEventListener("load", () => {
-    verificarLogin();
-    
-    let professorLoad = pegarProfessor();
+function gerarIniciais(nome) {
+    const partes = String(nome || "")
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
 
-    if (professorLoad) {
-        const turmas = professorLoad.turmas;
-
-        turmas.forEach((turma) => {
-            if (turma) {
-                adicionarTurmaAoHtml(turma);
-            }
-        });
+    if (!partes.length) {
+        return "P";
     }
-});
 
-let professor = pegarProfessor();
-
-console.log(JSON.stringify({
-    name: "John",
-    email: "jv1446170@gmail.com",
-    password: "12345678",
-    turmas: [
-        {
-            nome: "Engenharia de Software",
-            codigo: "ADS2026.1",
-            color: "blue",
-            alunos: [
-                { nome: "Alice", email: "alice@example.com" },
-                { nome: "Bob", email: "bob@example.com" },
-                { nome: "Charlie", email: "charlie@example.com" }
-            ]
-        },
-        {
-            nome: "Banco de Dados",
-            codigo: "ADS2026.2",
-            color: "green",
-            alunos: [
-                { nome: "David", email: "david@example.com" }
-            ]
-        }
-],
-    ativo: true
-}));
-
-function adicionarTurmaAoHtml(turma) {
-    const turmaDisplay = `<div class="card-turma">
-        <div class="card-linha" style="background-color: ${turma.color}"></div>
-        <div class="card-conteudo">
-            <div class="card-letra">${turma.codigo.charAt(0)}</div>
-
-            <h2>${turma.nome}</h2>
-
-            <p>${turma.codigo}</p>
-            <span>${turma.alunos.length} alunos</span>
-            <a href="#" class="abrir-turma" data-turma="engenharia">Abrir turma &gt;</a>
-        </div>
-    </div>`;
-
-    const turmasContainer = document.querySelector(".turmas");
-    turmasContainer.innerHTML += turmaDisplay;
+    return (partes[0][0] + partes[partes.length - 1][0]).toUpperCase();
 }
 
-const botoesTurma = document.querySelectorAll(".abrir-turma");
+function gerarIdTurma(turma, indice) {
+    const base = [turma.nome, turma.codigo, indice]
+        .filter(Boolean)
+        .join("-")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
 
-const diario = document.querySelector("#diario");
-const turmas = document.querySelector(".turmas");
+    return turma.id || base || `turma-${indice + 1}`;
+}
 
-const sairBtn = document.querySelector("#sair");
+function normalizarTurma(turma, indice) {
+    const alunos = Array.isArray(turma.alunos) ? turma.alunos : [];
 
-const adicionarTurmaBtn = document.querySelector(".adicionar-turma");
+    return {
+        ...turma,
+        id: gerarIdTurma(turma, indice),
+        nome: turma.nome || "Turma sem nome",
+        codigo: turma.codigo || turma.periodo || "Sem código",
+        color: turma.color || "#1877d1",
+        alunos,
+    };
+}
 
-adicionarTurmaBtn.addEventListener("click", () => {
-    window.location.href = "criarTurma.html";
-});
+function atualizarCabecalho(professor) {
+    const nomeProfessor = document.querySelector("#nomeProfessor");
+    const iniciaisProfessor = document.querySelector("#iniciaisProfessor");
+    const iniciaisTopo = document.querySelector("#iniciaisTopo");
 
+    const iniciais = gerarIniciais(professor.name);
 
+    nomeProfessor.textContent = professor.name || "Professor";
+    iniciaisProfessor.textContent = iniciais;
+    iniciaisTopo.textContent = iniciais;
+}
 
-sairBtn.addEventListener("click", () => {
-    professor.ativo = false;
+function criarCardTurma(turma) {
+    const card = document.createElement("article");
+    card.className = "card-turma";
 
+    const cor = turma.color || "#1877d1";
+    const alunosQtde = Array.isArray(turma.alunos) ? turma.alunos.length : 0;
+
+    card.innerHTML = `
+        <div class="card-linha" style="background-color: ${cor}"></div>
+        <div class="card-conteudo">
+            <div class="card-letra">${String(turma.codigo || "T").charAt(0)}</div>
+            <h2>${turma.nome}</h2>
+            <p>${turma.codigo}</p>
+            <span>${alunosQtde} alunos</span>
+            <a href="./notas.html?turma=${encodeURIComponent(turma.id)}" class="abrir-turma">Abrir turma &gt;</a>
+        </div>
+    `;
+
+    return card;
+}
+
+function renderizarTurmas(turmas) {
+    const container = document.querySelector(".turmas");
+    const estadoVazio = document.querySelector("#estadoVazio");
+
+    container.innerHTML = "";
+
+    if (!turmas.length) {
+        estadoVazio.hidden = false;
+        return;
+    }
+
+    estadoVazio.hidden = true;
+
+    turmas.forEach((turma) => {
+        container.appendChild(criarCardTurma(turma));
+    });
+}
+
+window.addEventListener("load", () => {
+    const professor = verificarLogin();
+
+    if (!professor) {
+        return;
+    }
+
+    professor.turmas = (professor.turmas || []).map(normalizarTurma);
     atualizarProfessor(professor);
+    atualizarCabecalho(professor);
+    renderizarTurmas(professor.turmas);
 
-    alert("Usuario deslogado com sucesso. Redirecionando para a pagina de login.");
-    window.location.href = "login.html";
-});
+    const sairBtn = document.querySelector("#sair");
+    const adicionarTurmaBtn = document.querySelector(".adicionar-turma");
 
-
-botoesTurma.forEach(function(botao) {
-
-    botao.addEventListener("click", function() {
-
-        const turma = botao.dataset.turma;
-
-        turmas.style.display = "none";
-        dica.style.display = "none";
-        diario.style.display = "block";
-        console.log(turma);
-
+    adicionarTurmaBtn.addEventListener("click", () => {
+        window.location.href = "criarTurma.html";
     });
 
+    sairBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        professor.ativo = false;
+        atualizarProfessor(professor);
+
+        alert("Usuario deslogado com sucesso. Redirecionando para a pagina de login.");
+        window.location.href = "login.html";
+    });
 });
-
-const nomeProfessor = document.querySelector("#nomeProfessor");
-
-const iniciaisProfessor = document.querySelector("#iniciaisProfessor");
-
-nomeProfessor.textContent = professor.name;
-
-const partesNome = professor.name.split(" ")
-
-const primeiraInicial = partesNome[0][0];
-
-const ultimaInicial = partesNome[partesNome.length - 1][0];
-
-iniciaisProfessor.textContent =
-    primeiraInicial + ultimaInicial;

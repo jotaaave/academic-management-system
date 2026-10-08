@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário de notas - SGA</title>
+
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/notas.css">
+</head>
+<body>
+    <aside class="menu-lateral">
+        <div class="logo">
+            <div class="logo-circulo">F</div>
+            <div>
+                <strong>SGA</strong>
+                <span>Documento</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="./index.html" class="menu-item ativo">
+                <span class="bolinha"></span>
+                Minhas turmas
+            </a>
+
+            <a href="./perfil.html" class="menu-item">
+                <span class="bolinha"></span>
+                Meu perfil
+            </a>
+
+            <a href="#" class="menu-item sair" id="sair">
+                <span class="bolinha"></span>
+                Sair
+            </a>
+        </nav>
+
+        <div class="professor">
+            <div class="professor-circulo" id="iniciaisProfessor">P</div>
+            <div>
+                <strong id="nomeProfessor">Professor</strong>
+                <span>Professor(a)</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="conteudo conteudo-notas">
+        <header class="cabecalho cabecalho-notas">
+            <div>
+                <a class="voltar-link" href="./index.html">← Voltar para minhas turmas</a>
+                <h1 id="nomeTurma">Diário de notas</h1>
+                <p id="codigoTurma">Turma selecionada</p>
+            </div>
+
+            <div class="usuario" id="iniciaisTopo">P</div>
+        </header>
+
+        <section class="quadro-notas">
+            <div class="quadro-topo">
+                <div>
+                    <h2>Notas da turma</h2>
+                    <p>Edite os campos em tempo real. A média e o status são recalculados automaticamente.</p>
+                </div>
+
+                <div class="resumo">
+                    <strong id="totalAlunos">0 alunos</strong>
+                    <span id="faixaExibida">Mostrando 0-0 de 0 alunos</span>
+                </div>
+            </div>
+
+            <form class="novo-aluno" id="formNovoAluno">
+                <div class="novo-aluno__campo">
+                    <label for="novoNomeAluno">Nome do aluno</label>
+                    <input type="text" id="novoNomeAluno" placeholder="Ex.: Maria Silva">
+                </div>
+
+                <div class="novo-aluno__campo">
+                    <label for="novaMatricula">Matrícula</label>
+                    <input type="text" id="novaMatricula" placeholder="Opcional">
+                </div>
+
+                <button type="submit" class="novo-aluno__btn">Adicionar aluno</button>
+            </form>
+
+            <div class="tabela-wrap">
+                <table class="tabela-notas">
+                    <thead>
+                        <tr>
+                            <th>Matrícula</th>
+                            <th>Nome do aluno</th>
+                            <th>P1</th>
+                            <th>P2</th>
+                            <th>Proj. F1</th>
+                            <th>Proj. F2</th>
+                            <th>Média</th>
+                            <th>Status</th>
+                            <th>Final</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyNotas"></tbody>
+                </table>
+            </div>
+
+            <div class="paginacao">
+                <button type="button" class="pagina-btn" id="paginaAnterior">&lt;</button>
+                <div class="pagina-lista" id="paginaLista"></div>
+                <button type="button" class="pagina-btn" id="paginaProxima">&gt;</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="../scripts/back-end.js"></script>
+    <script src="../scripts/notas.js"></script>
+</body>
+</html>

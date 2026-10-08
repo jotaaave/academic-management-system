@@ -60,10 +60,11 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  const professor = pegarProfessor();
+  const professores = typeof obterProfessores === "function" ? obterProfessores() : [];
+  const professor = professores.find((item) => String(item.email).toLowerCase() === email.toLowerCase());
 
   if (!professor) {
-    mostrarErro("Nenhum professor cadastrado. Por favor, cadastre-se primeiro.", emailInput);
+    mostrarErro("Nenhum professor cadastrado com esse e-mail. Por favor, cadastre-se primeiro.", emailInput);
     return;
   }
 

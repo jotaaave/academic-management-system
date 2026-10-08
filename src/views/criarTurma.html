@@ -5,108 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar turma - SGA</title>
 
-    <link rel="stylesheet" href="../styles/criarTurma.css">
     <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/criarTurma.css">
 </head>
 
 <body>
-
     <aside class="menu-lateral">
-    <div class="logo">
-        <div class="logo-circulo">F</div>
-        <div>
-            <strong>SGA</strong>
-            <span>Documento</span>
+        <div class="logo">
+            <div class="logo-circulo">F</div>
+            <div>
+                <strong>SGA</strong>
+                <span>Documento</span>
+            </div>
         </div>
-    </div>
 
-     <nav class="menu">
-
-
- <a href="./index.html" class="menu-item ativo">
+        <nav class="menu">
+            <a href="./index.html" class="menu-item ativo">
                 <span class="bolinha"></span>
                 Minhas turmas
+            </a>
 
- <a href="#" class="menu-item">
+            <a href="./perfil.html" class="menu-item">
+                <span class="bolinha"></span>
+                Meu perfil
+            </a>
 
-        <span class="bolinha"></span>
-        Meu perfil
+            <a href="#" class="menu-item sair" id="sair">
+                <span class="bolinha"></span>
+                Sair
+            </a>
+        </nav>
 
-        <a href="#" class="menu-item sair" id="sair">
-            <span class="bolinha"></span>
-            Sair
-        </a>
- </a>
+        <div class="professor">
+            <div class="professor-circulo" id="iniciaisProfessor">P</div>
 
-</nav>
-    <div class="professor">
-
-    <div class="professor-circulo" id="iniciaisProfessor">
-        P
-    </div>
-
-    <div>
-        <strong id="nomeProfessor">Professor</strong>
-        <span>Professor(a)</span>
-    </div>
-
-</div>
-</aside>
-
+            <div>
+                <strong id="nomeProfessor">Professor</strong>
+                <span>Professor(a)</span>
+            </div>
+        </div>
+    </aside>
 
     <main class="main">
-
         <header class="header">
             <h1>Criar turma</h1>
             <p>Preencha os dados para criar uma nova turma</p>
         </header>
 
-
         <section class="content">
-
             <div class="form-card">
-
                 <div class="form-header">
                     <h2>Nova turma</h2>
                     <p>Informe os dados da turma abaixo.</p>
                 </div>
 
-
-                <form>
-
+                <form id="form-criar-turma" novalidate>
                     <div class="form-group">
-                        <label for="nome">
-                            Nome da turma
-                        </label>
-
-                        <input
-                            type="text"
-                            id="nome"
-                            placeholder="Ex: ADS2026.3"
-                        >
+                        <label for="nomeTurma">Nome da turma</label>
+                        <input type="text" id="nomeTurma" placeholder="Ex: Engenharia de Software">
                     </div>
 
-
                     <div class="form-group">
-                        <label for="disciplina">
-                            Disciplina
-                        </label>
-
-                        <input
-                            type="text"
-                            id="disciplina"
-                            placeholder="Ex: Engenharia de Software"
-                        >
+                        <label for="codigoTurma">Código da turma</label>
+                        <input type="text" id="codigoTurma" placeholder="Ex: ADS2026.3">
                     </div>
 
+                    <div class="form-group">
+                        <label for="disciplina">Disciplina</label>
+                        <input type="text" id="disciplina" placeholder="Ex: Engenharia de Software">
+                    </div>
 
                     <div class="form-row">
-
                         <div class="form-group">
-                            <label for="ano">
-                                Ano
-                            </label>
-
+                            <label for="ano">Ano</label>
                             <select id="ano">
                                 <option value="">Selecione</option>
                                 <option>2026</option>
@@ -115,59 +86,34 @@
                             </select>
                         </div>
 
-
                         <div class="form-group">
-                            <label for="semestre">
-                                Semestre
-                            </label>
-
+                            <label for="semestre">Semestre</label>
                             <select id="semestre">
                                 <option value="">Selecione</option>
                                 <option>1º semestre</option>
                                 <option>2º semestre</option>
                             </select>
                         </div>
-
                     </div>
-
 
                     <div class="form-group">
-                        <label for="descricao">
-                            Descrição
-                        </label>
-
-                        <textarea
-                            id="descricao"
-                            placeholder="Descrição opcional da turma..."
-                        ></textarea>
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" placeholder="Descrição opcional da turma..."></textarea>
                     </div>
 
+                    <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
 
                     <div class="actions">
-
-                        <button
-                            type="button"
-                            class="btn-cancelar"
-                        >
-                            Cancelar
-                        </button>
-
-                        <button
-                            type="submit"
-                            class="btn-criar"
-                        >
-                            Criar turma
-                        </button>
-
+                        <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+                        <button type="submit" class="btn-criar">Criar turma</button>
                     </div>
-
                 </form>
-
             </div>
-
         </section>
-
     </main>
+
+    <script src="../scripts/back-end.js"></script>
+    <script src="../scripts/criarTurma.js"></script>
 
 </body>
 </html>

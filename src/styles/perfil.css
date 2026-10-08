@@ -1,0 +1,233 @@
+.menu-item.ativo {
+    background-color: #1d7fe0;
+}
+
+.perfil {
+    padding: 28px 28px 40px;
+    max-width: 640px;
+}
+
+.perfil-card {
+    background-color: white;
+    border: 1px solid #dce5ef;
+    border-radius: 10px;
+    padding: 26px 28px 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.foto-area {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #e5edf5;
+}
+
+.foto-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.foto-circulo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: #ddecfb;
+    color: #123368;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.foto-circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foto-circulo img[hidden] {
+    display: none;
+}
+
+.foto-badge {
+    position: absolute;
+    right: -2px;
+    bottom: 4px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #1877d1;
+    color: white;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.foto-info strong {
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 2px;
+}
+
+.foto-info span {
+    font-size: 10px;
+    color: #777;
+}
+
+.foto-botoes {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn-alterar,
+.btn-remover {
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-alterar {
+    background-color: #1877d1;
+    border: 1px solid #1877d1;
+    color: white;
+}
+
+.btn-alterar:hover {
+    background-color: #1055a5;
+    border-color: #1055a5;
+    transform: translateY(-1px);
+}
+
+.btn-remover {
+    background-color: white;
+    border: 1px solid #cbd5df;
+    color: #333;
+}
+
+.btn-remover:hover {
+    background-color: #f5f6f7;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.campo label {
+    font-size: 11px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.campo input {
+    width: 100%;
+    border: 1px solid #cbd5df;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background-color: #f7f9fc;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.campo input:focus {
+    border-color: #1877d1;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(24, 119, 209, 0.12);
+}
+
+.campo input::placeholder {
+    color: #9ba5af;
+}
+
+.campo input.invalido {
+    border-color: #e63b4a;
+}
+
+.erro {
+    font-size: 10px;
+    color: #e63b4a;
+    min-height: 12px;
+    margin-top: 4px;
+}
+
+.perfil-acoes {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.btn-salvar {
+    background-color: #1055a5;
+    border: 1px solid #1055a5;
+    color: white;
+    padding: 10px 34px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-salvar:hover {
+    background-color: #0d3e7a;
+    border-color: #0d3e7a;
+    transform: translateY(-1px);
+}
+
+.btn-salvar:disabled {
+    opacity: 0.7;
+    cursor: default;
+    transform: none;
+}
+
+.aviso {
+    font-size: 11px;
+    color: #20a05a;
+    font-weight: bold;
+}
+
+.aviso.erro-aviso {
+    color: #e63b4a;
+}
+
+@media (max-width: 640px) {
+
+    .perfil {
+        padding: 18px 14px 30px;
+    }
+
+    .perfil-card {
+        padding: 20px 16px 6px;
+    }
+
+    .foto-area {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .foto-botoes {
+        flex-wrap: wrap;
+    }
+
+}

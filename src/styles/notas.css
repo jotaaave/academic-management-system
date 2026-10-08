@@ -1,0 +1,316 @@
+/* =========================
+   DIÁRIO DE NOTAS
+========================= */
+
+.conteudo-notas {
+    background: #ddecfb;
+}
+
+.cabecalho-notas {
+    align-items: flex-start;
+    height: auto;
+    min-height: 52px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.voltar-link {
+    display: inline-block;
+    margin-bottom: 4px;
+    color: #0c67c4;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.voltar-link:hover {
+    text-decoration: underline;
+}
+
+.cabecalho-notas h1 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.cabecalho-notas p {
+    font-size: 10px;
+    color: #76879a;
+}
+
+.quadro-notas {
+    margin: 18px 20px 24px;
+    background: #fff;
+    border: 1px solid #dce5ef;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(12, 56, 104, 0.05);
+}
+
+.quadro-topo {
+    padding: 18px 18px 14px;
+    border-bottom: 1px solid #e4ebf2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.quadro-topo h2 {
+    font-size: 20px;
+    color: #1a2a3a;
+    margin-bottom: 4px;
+}
+
+.quadro-topo p {
+    font-size: 12px;
+    color: #728195;
+}
+
+.resumo {
+    text-align: right;
+}
+
+.resumo strong {
+    display: block;
+    font-size: 13px;
+    color: #1a2a3a;
+}
+
+.resumo span {
+    font-size: 11px;
+    color: #728195;
+}
+
+.novo-aluno {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 12px;
+    padding: 14px 18px 0;
+    align-items: end;
+}
+
+.novo-aluno__campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.novo-aluno__campo label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #405064;
+}
+
+.novo-aluno__campo input {
+    height: 34px;
+    border: 1px solid #d2dae4;
+    border-radius: 8px;
+    padding: 0 12px;
+    font: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+.novo-aluno__campo input:focus {
+    border-color: #1a6fdc;
+    box-shadow: 0 0 0 3px rgba(26, 111, 220, 0.12);
+}
+
+.novo-aluno__btn {
+    height: 34px;
+    border: 0;
+    border-radius: 8px;
+    background: #1055a5;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 16px;
+    cursor: pointer;
+}
+
+.novo-aluno__btn:hover {
+    background: #0d3e7a;
+}
+
+.tabela-wrap {
+    overflow-x: auto;
+}
+
+.tabela-notas {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    padding: 10px 12px 2px;
+    min-width: 1060px;
+}
+
+.tabela-notas thead th {
+    font-size: 11px;
+    text-align: left;
+    color: #7a8796;
+    padding: 0 8px 2px;
+    font-weight: 700;
+}
+
+.tabela-notas tbody tr {
+    background: #eef5fc;
+}
+
+.tabela-notas tbody td {
+    padding: 10px 8px;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #223142;
+}
+
+.tabela-notas tbody tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.tabela-notas tbody tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.matricula {
+    width: 100px;
+    color: #566579;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.nome-aluno {
+    min-width: 180px;
+    font-weight: 700;
+}
+
+.nota-input {
+    width: 100%;
+    min-width: 54px;
+    height: 30px;
+    border: 1px solid #d2dae4;
+    border-radius: 6px;
+    background: #fff;
+    text-align: center;
+    font: inherit;
+    font-size: 12px;
+    color: #203042;
+    outline: none;
+}
+
+.nota-input:focus {
+    border-color: #1a6fdc;
+    box-shadow: 0 0 0 3px rgba(26, 111, 220, 0.12);
+}
+
+.media-cell {
+    width: 72px;
+    font-weight: 700;
+    color: #1b2b3a;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 92px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .2px;
+    color: #fff;
+}
+
+.status-badge.aprovado {
+    background: #26a858;
+}
+
+.status-badge.reprovado {
+    background: #e3414d;
+}
+
+.status-badge.final {
+    background: #f39c12;
+}
+
+.status-badge.sem-nota {
+    background: #7c8ea5;
+}
+
+.boletim-cell {
+    width: 72px;
+    text-align: center;
+}
+
+.boletim-link {
+    color: #1771dc;
+    font-weight: 700;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.boletim-link:hover {
+    text-decoration: underline;
+}
+
+.paginacao {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 12px 14px 16px;
+}
+
+.pagina-btn,
+.pagina-numero {
+    min-width: 28px;
+    height: 28px;
+    border: 1px solid #d4dde8;
+    border-radius: 6px;
+    background: #fff;
+    color: #35506f;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.pagina-numero.ativo {
+    background: #176fd9;
+    border-color: #176fd9;
+    color: #fff;
+    font-weight: 700;
+}
+
+.pagina-btn:disabled,
+.pagina-numero:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.pagina-lista {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pagina-ellipsis {
+    min-width: 18px;
+    text-align: center;
+    color: #6d7f92;
+}
+
+@media (max-width: 900px) {
+    .quadro-topo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .resumo {
+        text-align: left;
+    }
+
+    .novo-aluno {
+        grid-template-columns: 1fr;
+    }
+}
